@@ -1,0 +1,10 @@
+# ativando o modo escrita
+RewriteEngine On
+# abrindo rotas de arquivos
+RewriteCond %{REQUEST_FILENAME}% !-f
+# abrindo rotas de diretorios
+RewriteCond %{REQUEST_FILENAME}% !-d
+# aplicando as regras da url
+RewriteRule ^([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+)/?$ view_cap.php?nome=$1&cap=$2 [L]
+RewriteRule ^([-_a-zA-Z0-9]+)/?$ view_manga.php?nome=$1 [L]
+RewriteRule ^([-_a-zA-Z0-9]+)/?$ index.php? [L]

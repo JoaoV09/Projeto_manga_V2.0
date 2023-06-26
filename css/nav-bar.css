@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    background-color: rgb(30, 30, 30);
+}
+
+/* perconalizando a scrollbar */
+
+body::-webkit-scrollbar {
+    width: 15px;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: rgb(143, 11, 143);
+}
+
+/* fim!! */
+
+nav {
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    align-items: center;
+}
+
+nav .logo {
+    width: 6vw;
+    height: 10vh;
+    margin: 0 15px;
+}
+
+nav .nav-link {
+    margin-left: 40px;
+    color: white;
+    font-size: 30px;
+    transition: all 0.8s;
+}
+
+nav .nav-link:hover {
+    color: rgb(107, 10, 107);
+    transition: all 0.2s;
+}
+
+nav .funcion {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+nav .funcion .nav-link .icon {
+    width: 4vw;
+    height: 8vh;
+    margin-right: 20px;
+    filter: invert(100%);
+}
+
+nav .funcion .drop {
+    width: 12vw;
+    height: 10vh;
+    position: absolute;
+    top: 10vh;
+    border-radius: 0 0 15px 15px;
+    display: none;
+    background-color: rgb(20, 20, 20);
+    
+}
+
+nav .funcion .nav-link:focus ~.drop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .funcion .drop .nav-link {
+    margin-left: 15px;
+}
+
+nav .funcion .drop .nav-link .icon2 {
+    width: 2vw;
+    height: 4vh;
+    filter: invert(100%);
+}
