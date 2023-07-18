@@ -1,5 +1,6 @@
 <?php
     $nome  = $_GET["nome"];
+    $nome = str_replace("_", " ", $nome);
     include_once 'conexao.php';
 
     $pash = "select * from manga where nome = '".$nome."' ";
@@ -21,27 +22,15 @@
     <link rel="stylesheet" href="css/nav-bar.css">
     <link rel="stylesheet" href="css/view_manga.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="shortcut icon" href="img/logo_transparente.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/assets/logo_transparente.png" type="image/x-icon">
     <title>Leitor Manga</title>
 </head>
 
 <body>
-    <nav>
-        <a href="/teste_nv/"><img src="img/assets/logo_transparente.png" alt="logo" class="logo"></a>
-        <a href="#" class="nav-link">Manga</a>
-        <a href="#" class="nav-link">Categoria</a>
-        <a href="#" class="nav-link">Grupos</a>
 
-        <div class="funcion">
-            <a href="#" class="nav-link"><img src="img/assets/person-circle.svg" alt="perfil" class="icon"></a>
-            <div class="drop">
-                <a href="#" class="nav-link"><img src="img/assets/star-fill.svg" class="icon2"></a>
-                <a href="#" class="nav-link"><img src="img/assets/eye-fill.svg" class="icon2"></a>
-                <a href="#" class="nav-link"><img src="img/assets/gear-fill.svg" class="icon2"></a>
-            </div>
-        </div>
-
-    </nav>
+    <?php
+        include_once 'header.php';
+    ?>
 
     <div class="container">
         <div class="cont-primaria">
@@ -50,16 +39,15 @@
                 $result = mysqli_query($con, $comando);
                 $row = mysqli_fetch_array($result);
                 $categoria = explode(",",$row['categoria']);
-                
             ?>
             <div class="card-capa">
-                <img src="img/mangas/<?php echo $row['capa'] ?>"  class="capa">
+                <img src="img/mangas/capas/<?php echo $row['capa'] ?>"  class="capa">
             </div>
             <div class="info">
                 <h1 class="titulo"><?php echo $row['nome'] ?></h1>
                 <?php
                  foreach($categoria as $categorias) {
-                    $categorias = $categoria[0];
+                    
                 ?><a href="categoria.php?nome=<?php echo $categorias ?>" class="categoria"><?php echo $categorias ?></a>
                 <?php
                 }
@@ -111,22 +99,9 @@
 
     <!-- footer -->
 
-    <footer>
-        <div class="cont">
-            <a href="index.php"><img src="img/assets/logo_transparente.png" alt="logo" class="logo-footer"></a>
-        </div>
-        <div class="cont-colum">
-            <a href="index.php" class="nav-link">Home</a>
-            <a href="#" class="nav-link">Manga</a>
-            <a href="#" class="nav-link">Categoria</a>
-            <a href="#" class="nav-link">Grupos</a>
-        </div>
-        <div class="cont">
-            <a href="#" class="nav-icon"><img src="img/assets/twitter.svg" class="icon"></a>
-            <a href="#" class="nav-icon"><img src="img/assets/discord.svg" class="icon"></a>
-            <a href="" class="nav-icon"><img src="img/assets/arrow-up-circle.svg" class="icon"></a>
-        </div>
-    </footer>
+    <?php
+        include_once 'footer.php';
+    ?>
 
 <?php
     mysqli_close($con);

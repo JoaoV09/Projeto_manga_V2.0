@@ -63,29 +63,32 @@ nav .funcion {
     align-items: center;
 }
 
-nav .funcion .nav-link .icon {
+nav .funcion .icon {
     width: 4vw;
     height: 8vh;
     margin-right: 20px;
+    cursor: pointer;
     filter: invert(100%);
 }
 
 nav .funcion .drop {
-    width: 12vw;
+    width: auto;
     height: 10vh;
+    padding: 10px;
     position: absolute;
     top: 10vh;
     border-radius: 0 0 15px 15px;
     display: none;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(20, 20, 20);
     
 }
 
-nav .funcion .nav-link:focus ~.drop {
+/* nav .funcion .nav-link:focus ~.drop {
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
+} */
 
 nav .funcion .drop .nav-link {
     margin-left: 15px;
